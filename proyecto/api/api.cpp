@@ -1,30 +1,30 @@
 #include "API.h"
 
-int API::mazeWidth() {
+int API::getMazeWidth() {
     cout << "mazeWidth" << endl;
     int response;
     cin >> response;
     return response;
 }
-int API::mazeHeight() {
+int API::getMazeHeight() {
     cout << "mazeHeight" << endl;
     int response;
     cin >> response;
     return response;
 }
-bool API::wallFront() {
+bool API::getWallFront() {
     cout << "wallFront" << endl;
     string response;
     cin >> response;
     return response == "true";
 }
-bool API::wallRight() {
+bool API::getWallRight() {
     cout << "wallRight" << endl;
     string response;
     cin >> response;
     return response == "true";
 }
-bool API::wallLeft() {
+bool API::getWallLeft() {
     cout << "wallLeft" << endl;
     string response;
     cin >> response;

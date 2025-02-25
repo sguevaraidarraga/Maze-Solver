@@ -15,11 +15,11 @@ using std::endl;
 
 class API {
     public:
-        static int mazeWidth();
-        static int mazeHeight();
-        static bool wallFront();
-        static bool wallRight();
-        static bool wallLeft();
+        static int getMazeWidth();
+        static int getMazeHeight();
+        static bool getWallFront();
+        static bool getWallRight();
+        static bool getWallLeft();
         static void moveForward(int distance = 1);
         static void turnRight();
         static void turnLeft();
