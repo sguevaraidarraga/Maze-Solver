@@ -3,6 +3,8 @@
 #ifndef API_H
 #define API_H
 
+#pragma once
+
 #include <string>
 #include <cstdlib>
 #include <iostream>
@@ -28,7 +30,7 @@ class API {
         static void setColor(int x, int y, char color);
         static void clearColor(int x, int y);
         static void clearAllColor();
-        static void setText(int x, int y, const std::string& text);
+        static void setText(int x, int y, const string &text);
         static void clearText(int x, int y);
         static void clearAllText();
         static bool wasReset();
