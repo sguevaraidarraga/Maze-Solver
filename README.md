@@ -1,4 +1,4 @@
-´´´mermaid
+```mermaid
 flowchart TD
     start(["Inicio"]) --> A["Inicializacion de matrices paredes y de distancias"]
     A --> B["BFS desde la meta"]
@@ -20,4 +20,4 @@ flowchart TD
     N --> O{"¿Llegó a la meta?"}
     O -- No --> C
     O -- Sí --> P(["Fin"])
-´´´
+```
