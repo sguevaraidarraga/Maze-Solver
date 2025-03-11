@@ -1,14 +1,14 @@
 #ifndef MAZE_H
 #define MAZE_H
 
-#include "API.h"
 #include "Directions.h"
-#include <iostream>
 #include <queue>
 #include <utility>
+#include <stack>
 
 using std::queue;
 using std::pair;
+using std::stack;
 
 class Maze {
 	private:
@@ -19,10 +19,11 @@ class Maze {
 	public:
 		Maze();
 		bool inBounds(int x, int y);
-	    bool getWall(int x, int y, int i);
-	    void setWall(Directions d, int x, int y);
+		bool hasWall(int x, int y, int d);
+	    void initDistances();
+	    void updateDistances(int x, int y);
+	    void setWall(int x, int y, int d);
 	    int getDistance(int x, int y);
-	    void computeDistances();
 };
 
 #endif

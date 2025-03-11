@@ -1,8 +1,6 @@
 #include "Navigator.h"
 
-Navigator::Navigator(Maze &m) {
-	maze = m;
-}
+Navigator::Navigator(Maze &m) : maze(m) {};
 Directions Navigator::getNextMove(Directions d, int x, int y) {
     Directions bestDir = d, nd;
     int bestDist = maze.getDistance(x, y), nx, ny;
