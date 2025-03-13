@@ -1,14 +1,20 @@
+// https://marsuniversity.github.io/ece387/FloodFill.pdf
+
 #ifndef MAZE_H
 #define MAZE_H
 
-#include "Directions.h"
+#include "../Directions/Directions.h"
 #include <queue>
 #include <utility>
 #include <stack>
+#include <iostream>
 
 using std::queue;
 using std::pair;
 using std::stack;
+using std::min;
+using std::cerr;
+using std::endl;
 
 class Maze {
 	private:
@@ -24,6 +30,8 @@ class Maze {
 	    void updateDistances(int x, int y);
 	    void setWall(int x, int y, int d);
 	    int getDistance(int x, int y);
+		void printWalls();
+		void printDistances();
 };
 
 #endif

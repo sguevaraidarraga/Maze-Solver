@@ -11,4 +11,25 @@ enum Directions {
     West  = 8
 };
 
+inline int directionToIndex(int d) {
+    int ans;
+    switch(d) {
+        case North: ans = 0; break;
+        case East: ans = 1; break;
+        case South: ans = 2; break;
+        case West: ans = 3; break;
+    }
+    return ans;
+}
+inline int oppositeDirection(int d) {
+    int ans = 0;
+    switch(d) {
+        case North: ans = South; break;
+        case East: ans = West; break;
+        case South: ans = North; break;
+        case West: ans = East; break;
+    }
+    return ans;
+}
+
 #endif
