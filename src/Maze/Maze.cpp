@@ -18,7 +18,7 @@ bool Maze::inBounds(int x, int y) {
 bool Maze::hasWall(int x, int y, int d) {
 	return (walls[x][y] & d) != 0;
 }
-void Maze::initDistances() {
+void Maze::flood() {
 	int cx, cy, nx, ny, nd;
 	queue<pair<int, int>> q;
 	q.push({7, 7});
@@ -42,20 +42,20 @@ void Maze::updateDistances(int x, int y) {
     stack<pair<int, int>> s;
     s.push({x, y});
     while(!s.empty()) {
-        cx = s.top().first, cy = s.top().second;
-        s.pop();
-        md = INF;
-        for(int i = 0; i < 4; i++) {
-            nx = cx + dx[i], ny = cy + dy[i];
-            if(inBounds(nx, ny) && !hasWall(nx, ny, (1 << i))) {
-                md = min(md, distance[nx][ny]);
-            }
-        }
-		if(distance[cx][cy] != 0 && distance[cx][cy] != md+1) {
+		cx = s.top().first, cy = s.top().second;
+		s.pop();
+    	md = INF;
+		for(int i = 0; i < 4; i++) {
+			nx = cx + dx[i], ny = cy + dy[i];
+			if(inBounds(nx, ny) && !hasWall(cx, cy, 1 << i)) {
+				md = min(md, distance[nx][ny]);
+			}
+		}
+		if(distance[cx][cy]-1 != md) {
 			distance[cx][cy] = md+1;
 			for(int i = 0; i < 4; i++) {
 				nx = cx + dx[i], ny = cy + dy[i];
-				if(inBounds(nx, ny) && !hasWall(nx, ny, (1 << i)) && distance[nx][ny] > distance[cx][cy]+1) {
+				if(inBounds(nx, ny) && distance[nx][ny] != 0) {
 					s.push({nx, ny});
 				}
 			}
@@ -64,8 +64,8 @@ void Maze::updateDistances(int x, int y) {
 }
 void Maze::setWall(int x, int y, int d) {
     int idx = directionToIndex(d), nx = x + dx[idx], ny = y + dy[idx];
-	walls[x][y] |= d;
-	if(inBounds(nx, ny)) {
+    walls[x][y] |= d;
+    if(inBounds(nx, ny)) {
         walls[nx][ny] |= oppositeDirection(d);
     }
     updateDistances(x, y);

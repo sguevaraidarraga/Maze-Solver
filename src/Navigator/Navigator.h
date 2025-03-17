@@ -1,8 +1,8 @@
 #ifndef NAVIGATOR_H
 #define NAVIGATOR_H
 
-#include "Maze.h"
-#include "Robot.h"
+#include "../Maze/Maze.h"
+#include "../Robot/Robot.h"
 
 class Navigator {
     private:

@@ -26,7 +26,7 @@ class Maze {
 		Maze();
 		bool inBounds(int x, int y);
 		bool hasWall(int x, int y, int d);
-	    void initDistances();
+	    void flood();
 	    void updateDistances(int x, int y);
 	    void setWall(int x, int y, int d);
 	    int getDistance(int x, int y);

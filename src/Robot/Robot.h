@@ -1,8 +1,8 @@
 #ifndef ROBOT_H
 #define ROBOT_H
 
-#include "API.h"
-#include "Directions.h"
+#include "../API/API.h"
+#include "../Directions/Directions.h"
 
 class Robot {
     private:

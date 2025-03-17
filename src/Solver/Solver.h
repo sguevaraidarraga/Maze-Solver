@@ -1,10 +1,10 @@
 #ifndef SOLVER_H
 #define SOLVER_H
 
-#include "API.h"
-#include "Maze.h"
-#include "Robot.h"
-#include "Navigator.h"
+#include "../API/API.h"
+#include "../Maze/Maze.h"
+#include "../Robot/Robot.h"
+#include "../Navigator/Navigator.h"
 #include <iostream>
 
 class Solver {
