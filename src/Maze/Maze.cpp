@@ -7,10 +7,6 @@ Maze::Maze() {
 			distance[i][j] = INF;
 		}
 	}
-	distance[7][7] = 0;
-	distance[7][8] = 0;
-	distance[8][7] = 0;
-	distance[8][8] = 0;
 }
 bool Maze::inBounds(int x, int y) {
 	return (0 <= x && x < N) && (0 <= y && y < N);
@@ -18,9 +14,13 @@ bool Maze::inBounds(int x, int y) {
 bool Maze::hasWall(int x, int y, int d) {
 	return (walls[x][y] & d) != 0;
 }
-void Maze::flood() {
+void Maze::flood(vector<pair<int, int>> &goals) {
 	int cx, cy, nx, ny, nd;
 	queue<pair<int, int>> q;
+	for(int i = 0; i < goals.size(); i++) {
+		distance[goals[i].first][goals[i].second] = 0;
+		q.push({goals[i].first, goals[i].second});
+	}
 	q.push({7, 7});
 	q.push({7, 8});
 	q.push({8, 7});
